@@ -79,3 +79,65 @@ Un nouveau scan Nmap a été réalisé après la mise en place des règles de fi
 ## 6. Conclusion
 
 La mise en place des règles de filtrage a permis de réduire significativement la surface d’attaque réseau et d’améliorer la sécurité globale de l’infrastructure, conformément à la fonction PROTECT du NIST Cybersecurity Framework.
+
+
+---
+
+# ✅ `system-security/hardening-linux.md` — VERSION FINALE
+
+```md
+# Sécurité Système Linux
+
+## 1. Gestion des utilisateurs
+
+- **Compte root :**
+  - Accès direct désactivé via SSH
+- **Utilisateurs standards :**
+  - Utilisation de comptes non privilégiés pour les tâches courantes
+- **Principe du moindre privilège :**
+  - Les droits administrateur sont accordés uniquement lorsque nécessaire
+
+Cette gestion limite les risques liés aux accès non autorisés.
+
+---
+
+## 2. Sécurisation SSH
+
+Les mesures suivantes ont été appliquées au service SSH :
+
+- **Port SSH :** Modifié afin de limiter les attaques automatisées
+- **Login root :** Interdit
+- **Authentification par mot de passe :** Limitée
+- **Bannière légale :** Activée pour informer des accès surveillés
+
+Ces mesures réduisent significativement les risques d’attaque par force brute.
+
+---
+
+## 3. Permissions des fichiers sensibles
+
+Les permissions des fichiers critiques ont été vérifiées et sécurisées :
+
+- `/etc/shadow` : accès restreint à l’administrateur
+- `/etc/passwd` : permissions par défaut sécurisées
+- `/etc/ssh/sshd_config` : modification réservée à l’administrateur
+
+Un contrôle strict des permissions empêche les accès non autorisés aux informations sensibles.
+
+---
+
+## 4. Services désactivés
+
+Les services non nécessaires ont été désactivés afin de réduire la surface d’attaque :
+
+| Service | Raison |
+|-------|--------|
+| Services inutilisés | Réduction des vecteurs d’attaque |
+| Services non critiques | Principe du moindre privilège |
+
+---
+
+## 5. Justification NIST — PROTECT
+
+Les mesures de durcissement mises en œuvre permettent de protéger les systèmes contre les accès non autorisés et les exploitations potentielles.  
+Elles s’inscrivent pleinement dans la fonction **PROTECT** du NIST Cybersecurity Framework en renforçant la configuration et la gestion des accès.
