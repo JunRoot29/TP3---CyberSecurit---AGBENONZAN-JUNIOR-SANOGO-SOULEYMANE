@@ -1,53 +1,81 @@
 # Sécurité Réseau – Pare-feu
 
 ## 1. Scan initial (avant sécurisation)
-- Outil : Nmap
-- IP cible :
-- Ports ouverts :
 
-## 2. Objectifs du filtrage
-- Réduire la surface d’attaque
-- Autoriser uniquement les services nécessaires
+Avant la mise en place des règles de filtrage, un scan réseau a été effectué afin d’identifier les services exposés.
 
-## 3. Règles iptables / nftables
-```bash
-# Exemple
-iptables -P INPUT DROP
-iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-4. Scan après sécurisation
-Ports ouverts :
+- **Outil :** Nmap  
+- **IP cible :** 10.0.2.15  
+- **Résultat :**
+  - Plusieurs ports détectés comme accessibles ou filtrés
+  - Surface d’attaque jugée trop large pour une infrastructure sécurisée
 
-Ports fermés :
-
-5. Comparaison avant / après
-Élément	Avant	Après
+Ce scan a permis d’identifier les services réellement nécessaires au fonctionnement de l’architecture.
 
 ---
 
-# 📁 4️⃣ `system-security/`
+## 2. Objectifs du filtrage
 
-### 📄 `hardening-linux.md`
-```markdown
-# Sécurité Système Linux
+Les objectifs principaux du filtrage réseau sont les suivants :
 
-## 1. Gestion des utilisateurs
-- Compte root :
-- Utilisateurs standards :
-- Principe du moindre privilège :
+- Réduire la surface d’attaque
+- Appliquer le principe du moindre privilège
+- Autoriser uniquement les services indispensables
+- Bloquer toute communication non légitime
 
-## 2. Sécurisation SSH
-- Port SSH :
-- Login root :
-- Authentification par mot de passe :
-- Bannière légale :
+---
 
-## 3. Permissions fichiers sensibles
-- /etc/shadow
-- /etc/passwd
-- /etc/ssh/sshd_config
+## 3. Règles de pare-feu mises en place
 
-## 4. Services désactivés
-| Service | Raison |
-|-------|--------|
+Les règles suivantes ont été appliquées à l’aide de **iptables** :
 
-## 5. Justification NIST (Protect)
+```bash
+# Politique par défaut restrictive
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+
+# Autoriser les connexions déjà établies
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+# Autoriser le trafic local
+iptables -A INPUT -i lo -j ACCEPT
+
+# Autoriser le service Web (DMZ)
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+# Autoriser SSH depuis l’administrateur uniquement
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+```
+
+Ces règles assurent un filtrage strict tout en garantissant le fonctionnement des services nécessaires.
+
+---
+
+## 4. Scan après sécurisation
+
+Un nouveau scan Nmap a été réalisé après la mise en place des règles de filtrage.
+
+**Ports ouverts :**
+- 80 (HTTP)
+- 22 (SSH – accès restreint)
+
+**Ports fermés ou filtrés :**
+- Tous les autres ports non nécessaires
+
+---
+
+## 5. Comparaison avant / après sécurisation
+
+| Élément | Avant sécurisation | Après sécurisation |
+|--------|-------------------|------------------|
+| Ports exposés | Plusieurs | Uniquement nécessaires |
+| Politique pare-feu | Peu restrictive | Restrictive par défaut |
+| Surface d'attaque | Élevée | Réduite |
+| Contrôle des flux | Limité | Strict |
+
+---
+
+## 6. Conclusion
+
+La mise en place des règles de filtrage a permis de réduire significativement la surface d’attaque réseau et d’améliorer la sécurité globale de l’infrastructure, conformément à la fonction PROTECT du NIST Cybersecurity Framework.

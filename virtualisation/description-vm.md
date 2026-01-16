@@ -9,7 +9,7 @@
 - OS : Ubuntu Server 22.04 LTS
 - Raison du choix : Le choix d’Ubuntu Server LTS est motivé par sa stabilité, son support long terme et son adoption en environnement professionnel.
 - CPU : 3
-- RAM : 4096 Go
+- RAM : 4096 MB
 - Stockage : 50 Go
 - Interfaces réseau :
 
@@ -24,4 +24,3 @@
 - Snapshots
 
 ## 5. Schéma hôte / hyperviseur / VM
-*(Image ou description)*
