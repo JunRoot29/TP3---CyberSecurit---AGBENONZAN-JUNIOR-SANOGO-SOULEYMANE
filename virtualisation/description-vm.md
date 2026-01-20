@@ -8,19 +8,16 @@
 ## 2. Machine virtuelle
 - OS : Ubuntu Server 22.04 LTS
 - Raison du choix : Le choix d’Ubuntu Server LTS est motivé par sa stabilité, son support long terme et son adoption en environnement professionnel.
-- CPU : 3
-- RAM : 4096 MB
-- Stockage : 50 Go
-- Interfaces réseau :
-
-## 3. Ressources allouées
-| Ressource | Valeur | Justification |
-|---------|--------|---------------|
-
-## 4. Intérêt sécurité de la virtualisation
+ Ressources allouées
+| Ressource | Valeur|
+|---------|--------|
+| CPU | 3 |
+| RAM | 4096 MB |
+|Interfaces réseau | NAT, Accès par pont, FastEthenet|
+## 3. Intérêt sécurité de la virtualisation
 - Isolation
 - Cloisonnement
 - Réduction d’impact
 - Snapshots
 
-## 5. Schéma hôte / hyperviseur / VM
+## 4. Schéma hôte / hyperviseur / VM
