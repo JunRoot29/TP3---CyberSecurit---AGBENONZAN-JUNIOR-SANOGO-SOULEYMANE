@@ -1,7 +1,7 @@
 ```markdown
-# Projet Fil Rouge — Cybersécurité, Virtualisation & Cloud
+# 🔐 Projet Fil Rouge — Cybersécurité, Virtualisation & Cloud
 
-## Présentation générale
+## 📌 Présentation générale
 
 Ce projet s’inscrit dans le cadre du **Projet Fil Rouge – Licence 3 Cybersécurité**.  
 Il a pour objectif de **concevoir, déployer, sécuriser et auditer** une plateforme Web critique hébergée dans un **environnement virtualisé**, puis exposée via un **cloud simulé**.
@@ -10,7 +10,7 @@ L’ensemble du projet repose sur une approche méthodique inspirée des bonnes 
 
 ---
 
-## Approche adoptée
+## ⚙️ Approche adoptée
 
 - **Virtualisation** d’une infrastructure Linux  
 - **Segmentation réseau** (LAN / DMZ / Internet)  
@@ -19,7 +19,7 @@ L’ensemble du projet repose sur une approche méthodique inspirée des bonnes 
 
 ---
 
-## Objectifs du projet
+## 🎯 Objectifs du projet
 
 - Comprendre le rôle de la virtualisation en cybersécurité  
 - Concevoir une architecture réseau segmentée et sécurisée  
@@ -30,7 +30,7 @@ L’ensemble du projet repose sur une approche méthodique inspirée des bonnes 
 
 ---
 
-## Architecture globale
+## 🧱 Architecture globale
 
 L’architecture mise en place repose sur une segmentation claire des zones réseau :
 
@@ -44,7 +44,7 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Environnement technique
+## 🖥️ Environnement technique
 
 ### Virtualisation
 - Hyperviseur : VirtualBox / VMware / KVM  
@@ -68,7 +68,7 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Méthodologie — NIST Cybersecurity Framework
+## 🧭 Méthodologie — NIST Cybersecurity Framework
 
 | Fonction NIST | Actions réalisées |
 |--------------|------------------|
@@ -80,7 +80,7 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Structure du dépôt
+## 📂 Structure du dépôt
 
 ```bash
 .
@@ -96,7 +96,7 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Outils utilisés
+## 🔎 Outils utilisés
 
 * Docker / Docker Compose
 * iptables / nftables
@@ -108,15 +108,15 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Organisation du travail (Binôme)
+## 👥 Organisation du travail (Binôme)
 
-### AGBENONZAN KOSSIVI JACQUES JUNIOR — *Blue Team*
+### 👤 AGBENONZAN KOSSIVI JACQUES JUNIOR — *Blue Team*
 
 * Architecture & virtualisation
 * Sécurité réseau et système
 * Analyse des logs & forensic
 
-### SANOGO SOULEYMANE — *Red Team*
+### 👤 SANOGO SOULEYMANE — *Red Team*
 
 * Analyse d’exposition réseau
 * Tests d’attaque contrôlés
@@ -124,7 +124,7 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Livrables finaux
+## 📄 Livrables finaux
 
 * Dépôt GitHub complet
 * Rapport final (PDF / DOCX)
@@ -132,11 +132,11 @@ L’architecture mise en place repose sur une segmentation claire des zones rés
 
 ---
 
-## Auteurs
+## 🏁 Auteurs
 
 * **AGBENONZAN KOSSIVI JACQUES JUNIOR**
 * **SANOGO SOULEYMANE**
 
-Licence 3 Cybersécurité  
-Année académique : 2025–2026
+🎓 Licence 3 Cybersécurité  
+📅 Année académique : 2025–2026
 ```
